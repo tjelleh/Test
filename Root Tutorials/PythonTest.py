@@ -13,5 +13,4 @@ plt.ylabel('Y-Achse')
 plt.grid(True)
 plt.legend(['Data Points'])
 plt.show()
-
 print("Hist was plotted successfully.")
