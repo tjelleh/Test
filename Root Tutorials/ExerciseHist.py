@@ -73,8 +73,8 @@ pT_hist_1.SetTitle("Myon Transversalimpuls im Z-Boson Zerfall")
 canvas.Update()  # Update the canvas to reflect changes
 
 # Statistik-Boxen ausblenden, wenn man sie nicht sehen möchte
-pT_hist_1.SetStats(True)
-pT_hist_2.SetStats(True) 
+pT_hist_1.SetStats(False)  
+pT_hist_2.SetStats(False) 
 # Hier ausgeblendet, da man die Statistik-Boxen nicht sehen möchte. Man kann sie aber auch verschieben, wenn man möchte. (siehe unten)
 
 
