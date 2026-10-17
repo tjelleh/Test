@@ -41,6 +41,7 @@ pT_hist_1.GetXaxis().CenterTitle(True)
 pT_hist_1.GetYaxis().CenterTitle(True)
 
 
+
 #Create a canvas and Fill the histograms with leading and subleading muon pt from branches lep1_pt and lep2_pt
 # You can draw them on the same canvas of different canvases. Here, they are drawn on the same canvas.
 
@@ -81,6 +82,17 @@ pT_hist_2.SetStats(False)
 # Mit dem Befehl python -i ExerciseHist.py kann man die Statistik-Boxen auch nachträglich noch verschieben und das PDF Speicher
 # python -i öffnet Interaktives Fenster, wo man alles verschieben kann
 
+
+
+#Legende erstellen, um die beiden Histogramme zu unterscheiden
+legend = TLegend(0.66, 0.75, 0.86, 0.87)
+legend.AddEntry(pT_hist_1, "Leading Lepton", "f")
+legend.AddEntry(pT_hist_2, "Subleading Lepton", "f")
+legend.SetBorderSize(1)
+legend.Draw()
+
+
+canvas.SetGrid(False,False) # Gridlines (x,y), bei (): x-Achse, y-Achse, beides
 canvas.Draw()
 
 # in vorherigem Ordner PDF Speichern
