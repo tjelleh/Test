@@ -54,5 +54,5 @@ physics_tree.Draw("lep2_pt >> hist_2", "", "same")
 
 canvas.Draw()
 
-
-canvas.SaveAs("ExerciseHist.pdf")
+# in vorherigem Ordner PDF Speichern
+canvas.SaveAs("../PDFs/ExerciseHist.pdf")
