@@ -96,4 +96,4 @@ canvas.SetGrid(False,False) # Gridlines (x,y), bei (): x-Achse, y-Achse, beides
 canvas.Draw()
 
 # in vorherigem Ordner PDF Speichern
-canvas.SaveAs("../PDFs/ExerciseHist.pdf")
+#canvas.SaveAs("../PDFs/ExerciseHist.pdf")
