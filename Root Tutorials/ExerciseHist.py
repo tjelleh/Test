@@ -1,4 +1,4 @@
-from ROOT import TFile, TCanvas, TH1D, TChain
+from ROOT import TFile, TCanvas, TH1D, TLegend, TChain
 import ROOT
 
 #Damit man mit Setfillcoloralpha arbeiten kann, muss man die OpenGL-Option aktivieren. (also für Transparentes Zeichnen)
@@ -46,11 +46,40 @@ pT_hist_1.GetYaxis().CenterTitle(True)
 
 canvas = TCanvas()#("canvas", "", 800, 600)
 
+
+
+# Draw the histograms on the canvas, Aus Physics Tree nimmt man EIntries und füllt die Histogramme mit den Werten aus den Branches lep1_pt und lep2_pt.
 physics_tree.Draw("lep1_pt >> hist_1")
+physics_tree.Draw("lep2_pt >> hist_2", "", "sames") #sames generiert auch Statistik mit
+
+#Aktuell überlagern sich beide Statistik-Boxen, man kann sie aber auch verschieben, wenn man möchte. (siehe unten)
 
 
+#Statistiken Berechnen und ausgeben
 
-physics_tree.Draw("lep2_pt >> hist_2", "", "same")
+# Für das erste Myon:
+print(f"Leading muon pT: mean={pT_hist_1.GetMean():.6f}; rms={pT_hist_1.GetRMS():.6f}")
+print(f"Leading muon pT integral: {pT_hist_1.Integral()}")
+
+# Für das zweite Myon (genau dasselbe mit _2):
+print(f"Subleading muon pT: mean={pT_hist_2.GetMean():.6f}; rms={pT_hist_2.GetRMS():.6f}")
+print(f"Subleading muon pT integral: {pT_hist_2.Integral()}")
+
+
+# Titel Umbennen (Eigentlich vom ersten Histogramm, da es das erste ist, das gezeichnet wird.)
+pT_hist_1.SetTitle("Myon Transversalimpuls im Z-Boson Zerfall")
+
+
+canvas.Update()  # Update the canvas to reflect changes
+
+# Statistik-Boxen ausblenden, wenn man sie nicht sehen möchte
+pT_hist_1.SetStats(True)
+pT_hist_2.SetStats(True) 
+# Hier ausgeblendet, da man die Statistik-Boxen nicht sehen möchte. Man kann sie aber auch verschieben, wenn man möchte. (siehe unten)
+
+
+# Mit dem Befehl python -i ExerciseHist.py kann man die Statistik-Boxen auch nachträglich noch verschieben und das PDF Speicher
+# python -i öffnet Interaktives Fenster, wo man alles verschieben kann
 
 canvas.Draw()
 
