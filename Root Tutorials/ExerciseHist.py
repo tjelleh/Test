@@ -1,4 +1,4 @@
-from ROOT import TFile, TCanvas, TH1D, TLegend, TChain
+from ROOT import TFile, TCanvas, TH1D, TLegend, TChain, THStack
 import ROOT
 
 #Damit man mit Setfillcoloralpha arbeiten kann, muss man die OpenGL-Option aktivieren. (also für Transparentes Zeichnen)
@@ -48,7 +48,6 @@ pT_hist_1.GetYaxis().CenterTitle(True)
 canvas = TCanvas()#("canvas", "", 800, 600)
 
 
-
 # Draw the histograms on the canvas, Aus Physics Tree nimmt man EIntries und füllt die Histogramme mit den Werten aus den Branches lep1_pt und lep2_pt.
 physics_tree.Draw("lep1_pt >> hist_1")
 physics_tree.Draw("lep2_pt >> hist_2", "", "sames") #sames generiert auch Statistik mit
@@ -96,4 +95,4 @@ canvas.SetGrid(False,False) # Gridlines (x,y), bei (): x-Achse, y-Achse, beides
 canvas.Draw()
 
 # in vorherigem Ordner PDF Speichern
-#canvas.SaveAs("../PDFs/ExerciseHist.pdf")
+canvas.SaveAs("../PDFs/ExerciseHist.pdf")
