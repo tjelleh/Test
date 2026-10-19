@@ -13,6 +13,9 @@ physics_tree = Zmumu_file.Get("physics")
 #physics_tree = TChain("physics")
 #physics_tree.Add("Zmumu.root")
 #Check number of events
+
+
+
 N_events = physics_tree.GetEntries()
 print(f'NEvents: {N_events}')
 
