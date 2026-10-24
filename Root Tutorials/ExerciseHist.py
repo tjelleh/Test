@@ -5,7 +5,7 @@ import ROOT
 ROOT.gStyle.SetCanvasPreferGL(True)
 
 #Open the Zmumu.root file and load the physics tree
-Zmumu_file = TFile("Zmumu.root")
+Zmumu_file = TFile("~/Scratch/Test/Root Tutorials/Zmumu.root")
 physics_tree = Zmumu_file.Get("physics")
 
 
